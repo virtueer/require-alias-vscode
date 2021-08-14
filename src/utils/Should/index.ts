@@ -26,7 +26,7 @@ export function getRequiring(document: vs.TextDocument, position: vs.Position) {
   return request.str;
 }
 
-function getBetweenQuotes(line: string): Line | null {
+export function getBetweenQuotes(line: string): Line | null {
   const str = /'(.*?)'/.exec(line) || /"(.*?)"/.exec(line);
   if (str) {
     return { str: str[1], index: str.index };

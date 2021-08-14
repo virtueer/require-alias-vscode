@@ -1,5 +1,5 @@
-import * as vs from 'vscode';
-import { generate } from '../utils/Loader';
+import * as vs from "vscode";
+import { generate } from "../utils/Loader";
 
 let aliases: Record<string, vs.Uri> = {};
 
@@ -10,7 +10,16 @@ export async function load() {
 
 export function get(alias: string) {
   const uri = aliases[alias];
-  if (!uri) return [];
+  if (!uri) {
+    return [];
+  }
 
-  return new vs.Location(uri, new vs.Range(new vs.Position(0, 0), new vs.Position(0, 0)));
+  return new vs.Location(
+    uri,
+    new vs.Range(new vs.Position(0, 0), new vs.Position(0, 0))
+  );
+}
+
+export function listAliases(){
+  return Object.keys(aliases);
 }
