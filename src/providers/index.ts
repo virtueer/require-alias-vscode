@@ -1,5 +1,10 @@
 import { subscribeToAliasrc } from "./WatchAliasrc";
 import { definitionProvider } from "./Definition";
-import { completionProvider } from "./Completion";
+import { pathsCompletionProvider, requiresCompletionProvider } from "./Completion";
 
-export default [definitionProvider, completionProvider, subscribeToAliasrc()];
+export default [
+  subscribeToAliasrc(),
+  definitionProvider,
+  pathsCompletionProvider,
+  requiresCompletionProvider,
+];

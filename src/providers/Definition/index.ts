@@ -14,7 +14,7 @@ const definitionProvider = vs.languages.registerDefinitionProvider(
       if (!path) {
         return [];
       }
-      return get(path);
+      return get(path) as vs.Definition;
     },
   }
 );

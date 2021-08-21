@@ -8,10 +8,14 @@ export async function load() {
   aliases = await generate();
 }
 
-export function get(alias: string) {
+export function get(alias: string, returnUri: boolean = false) {
   const uri = aliases[alias];
   if (!uri) {
     return [];
+  }
+
+  if (returnUri) {
+    return uri;
   }
 
   return new vs.Location(
@@ -20,6 +24,6 @@ export function get(alias: string) {
   );
 }
 
-export function listAliases(){
+export function listAliases() {
   return Object.keys(aliases);
 }
